@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
+    <style>
 @font-face {
   font-family: 'noto';
   src: url(fonts/NotoSans-Regular.ttf);
@@ -44,8 +44,13 @@ body {
     display: inline-block;
     width: 49%
 }
-ol b {
-   color: red;
+input[type='checkbox'] {
+    -webkit-appearance:none;
+    width:22px;
+    height:22px;
+    background:white;
+    border-radius:4px;
+    border:2px solid #555;
 }
 </style>
 </head>
@@ -62,7 +67,8 @@ ol b {
 </div>
 <div>
     <b>Adresa locuinței:</b> {{address}}
-    <p class="note">Se va completa adresa locuinței în care persoana locuiește în fapt, indiferent dacă este identică sau nu cu cea menționată în actul de identitate.</p>
+    <p class="note">Se va completa adresa locuinței în care persoana locuiește în fapt, indiferent dacă este identică
+        sau nu cu cea menționată în actul de identitate.</p>
 </div>
 <div>
     <p><b>Locul/locurile deplasării:</b></p>
@@ -71,99 +77,107 @@ ol b {
 </div>
 <div>
     <p><b>Motivul deplasării:</b></p>
-    <ol>
-        <li>
-            {{#configuration.work}}
-                <b>
-            {{/configuration.work}}
-                interes profesional, inclusiv între locuință/gospodărie și locul/locurile de desfășurare a activității profesionale și înapoi
-            {{#configuration.work}}
-                </b>
-            {{/configuration.work}}
-        </li>
-        <li>
-            {{#configuration.shopping}}
-            <b>
-            {{/configuration.shopping}}
-                asigurarea de bunuri care acoperă necesitățile de bază ale persoanelor și animalelor de companie/domestice
-            {{#configuration.shopping}}
-            </b>
-            {{/configuration.shopping}}
-        </li>
-        <li>
-            {{#configuration.med}}
-            <b>
-            {{/configuration.med}}
-                asistență medicală care nu poate fi amânată și nici realizată de la distanță
-            {{#configuration.med}}
-            </b>
-            {{/configuration.med}}
-        </li>
-        <li>
-            {{#configuration.help}}
-            <b>
-            {{/configuration.help}}
-                motive justificate, precum îngrijirea/ însoțirea unui minor/copilului, asistența persoanelor vârstnice, bolnave sau cu dizabilități ori deces al unui membru de familie
-            {{#configuration.help}}
-            </b>
-            {{/configuration.help}}
-        </li>
-        <li>
-            {{#configuration.running}}
-            <b>
-            {{/configuration.running}}
-                activitate fizică individuală (cu excluderea oricăror activități sportive de echipă/ colective) sau pentru nevoile animalelor de companie/domestice, în apropierea locuinței
-            {{#configuration.running}}
-            </b>
-            {{/configuration.running}}
-        </li>
-        <li>
-            {{#configuration.agricole}}
-            <b>
-            {{/configuration.agricole}}
-                realizarea de activități agricole
-            {{#configuration.agricole}}
-            </b>
-            {{/configuration.agricole}}
-        </li>
-        <li>
-            {{#configuration.blood}}
-            <b>
-            {{/configuration.blood}}
-                donarea de sânge, la centrele de transfuzie sanguină
-            {{#configuration.blood}}
-            </b>
-            {{/configuration.blood}}
-        </li>
-        <li>
-            {{#configuration.voluntariat}}
-            <b>
-            {{/configuration.voluntariat}}
-                scopuri umanitare sau de voluntariat
-            {{#configuration.voluntariat}}
-            </b>
-            {{/configuration.voluntariat}}
-        </li>
-        <li>
-            {{#configuration.market}}
-            <b>
-            {{/configuration.market}}
-            comercializarea de produse agroalimentare (în cazul producătorilor agricoli)
-            {{#configuration.market}}
-            </b>
-            {{/configuration.market}}
-        </li>
-        <li>
-            {{#configuration.goods}}
-            <b>
-            {{/configuration.goods}}
-            asigurarea de bunuri necesare desfășurării activității profesionale.
-            {{#configuration.goods}}
-            </b>
-            {{/configuration.goods}}
-        </li>
-    </ol>
+    <form>
+        <table>
+            <tr>
+                <td>
+                    <input type="checkbox" name="work" value="1" disabled="disabled"
+                           {{#configuration.work}}checked="checked"{{/configuration.work}}/>
+                </td>
+                <td>
+                    1. interes profesional, inclusiv între locuință/gospodărie și locul/locurile de desfășurare a
+                    activității profesionale și înapoi
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="shopping" value="2" disabled="disabled"
+                           {{#configuration.shopping}}checked="checked"{{/configuration.shopping}}/>
+                </td>
+                <td>
+                    2. asigurarea de bunuri care acoperă necesitățile de bază ale persoanelor și animalelor de
+                    companie/domestice
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="med" value="3" disabled="disabled"
+                           {{#configuration.med}}checked="checked"{{/configuration.med}}/>
+                </td>
+                <td>
+                    3. asistență medicală care nu poate fi amânată și nici realizată de la distanță
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="help" value="4" disabled="disabled"
+                           {{#configuration.help}}checked="checked"{{/configuration.help}}/>
+                </td>
+                <td>
+                    4. motive justificate, precum îngrijirea/ însoțirea unui minor/copilului, asistența persoanelor
+                    vârstnice, bolnave sau cu dizabilități ori deces al unui membru de familie
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="running" value="5" disabled="disabled"
+                           {{#configuration.running}}checked="checked"{{/configuration.running}}/>
+                </td>
+                <td>
+                    5. activitate fizică individuală (cu excluderea oricăror activități sportive de echipă/ colective)
+                    sau pentru nevoile animalelor de companie/domestice, în apropierea locuinței
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="agricole" value="6" disabled="disabled"
+                           {{#configuration.agricole}}checked="checked"{{/configuration.agricole}}/>
+                </td>
+                <td>
+                    6. realizarea de activități agricole
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="blood" value="7" disabled="disabled"
+                           {{#configuration.blood}}checked="checked"{{/configuration.blood}}/>
+                </td>
+                <td>
+                    7. donarea de sânge, la centrele de transfuzie sanguină
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="voluntariat" value="8" disabled="disabled"
+                           {{#configuration.voluntariat}}checked="checked"{{/configuration.voluntariat}}/>
+                </td>
+                <td>
+                    8. scopuri umanitare sau de voluntariat
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="market" value="9" disabled="disabled"
+                           {{#configuration.market}}checked="checked"{{/configuration.market}}/>
+                </td>
+                <td>
+                    9. comercializarea de produse agroalimentare (în cazul producătorilor agricoli)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" name="goods" value="10" disabled="disabled"
+                           {{#configuration.goods}}checked="checked"{{/configuration.goods}}/>
+                </td>
+                <td>
+                    10. asigurarea de bunuri necesare desfășurării activității profesionale.
+                </td>
+            </tr>
+        </table>
+    </form>
     <span class="note">Se va bifa doar motivul/motivele deplasării dintre cele prevăzute în listă, nefiind permise deplasări realizate invocând alte motive decât cele prevăzute în Ordonanța Militară nr. 3/2020.</span>
+    <br/>
+    <span class="note">Subsemnatul cunosc prevederile art. 326 din Codul Penal cu privire la falsul în declarații și art. 352 din Codul Penal cu privire la zădărnicirea combaterii bolilor.</span>
 </div>
 <div>
     <div class="inline">
@@ -174,7 +188,9 @@ ol b {
     </div>
 </div>
 <div>
-    <p class="bold note">Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motivele prevăzute în câmpurile 1-6, deplasarea fiind permisă zilnic doar în intervalul orar 11.00 – 13.00.</p>
+    <p class="bold note">Persoanele care au împlinit vârsta de 65 de ani completează doar pentru motivele prevăzute în
+        câmpurile 1-6, deplasarea fiind permisă zilnic doar în intervalul orar 11.00 – 13.00, iar în afara intervalului
+        pentru motivele de la punctul 1 și punctul 6.</p>
 </div>
 
 </body>
